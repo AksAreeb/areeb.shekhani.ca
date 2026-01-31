@@ -1,17 +1,28 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export function AnimatedGridBackground() {
-  const gridCols = 20;
-  const gridRows = 12;
-  const dots = Array.from({ length: 80 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    delay: Math.random() * 2,
-    duration: 3 + Math.random() * 2,
-  }));
+  const [dots, setDots] = useState<Array<{
+    id: number;
+    x: number;
+    y: number;
+    delay: number;
+    duration: number;
+  }>>([]);
+
+  useEffect(() => {
+    setDots(
+      Array.from({ length: 80 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        delay: Math.random() * 2,
+        duration: 3 + Math.random() * 2,
+      }))
+    );
+  }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
@@ -38,7 +49,7 @@ export function AnimatedGridBackground() {
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
         style={{
-          background: "radial-gradient(circle, #00ff88 0%, transparent 70%)",
+          background: "radial-gradient(circle, #00e5ff 0%, transparent 70%)",
           top: "-20%",
           left: "-10%",
         }}
@@ -69,12 +80,12 @@ export function AnimatedGridBackground() {
           ease: "easeInOut",
         }}
       />
-      {/* Floating particles */}
+      {/* Floating particles - client-only to prevent hydration mismatch */}
       <div className="absolute inset-0">
-        {dots.slice(0, 30).map((dot) => (
+        {dots.length > 0 && dots.slice(0, 30).map((dot) => (
           <motion.div
             key={dot.id}
-            className="absolute w-1 h-1 rounded-full bg-emerald-glow"
+            className="absolute w-1 h-1 rounded-full bg-cyan-electric"
             style={{
               left: `${dot.x}%`,
               top: `${dot.y}%`,

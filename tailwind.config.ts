@@ -17,6 +17,10 @@ export default {
           blue: "#00d4ff",
           "blue-dim": "#00d4ff40",
         },
+        cyan: {
+          electric: "#00e5ff",
+          "electric-dim": "#00e5ff40",
+        },
       },
       boxShadow: {
         "emerald-glow": "0 0 40px rgba(0, 255, 136, 0.3)",

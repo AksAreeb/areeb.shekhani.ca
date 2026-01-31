@@ -29,7 +29,7 @@ function MarqueeItem() {
       {[...TECH_STACK, ...TECH_STACK].map((tech, i) => (
         <div
           key={`${tech.name}-${i}`}
-          className="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-glow/50 hover:bg-white/10 transition-all duration-300"
+          className="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-electric/50 hover:bg-white/10 transition-all duration-300"
         >
           <span className="text-2xl">{tech.icon}</span>
           <span className="text-lg font-medium text-white/90">{tech.name}</span>

@@ -6,7 +6,7 @@ import { useRef, useState, type ReactNode } from "react";
 interface BentoTileProps {
   children: ReactNode;
   className?: string;
-  glowColor?: "emerald" | "cyber";
+  glowColor?: "emerald" | "cyber" | "cyan";
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
 }
@@ -54,7 +54,9 @@ export function BentoTile({
   const glowStyles =
     glowColor === "emerald"
       ? "shadow-[0_0_40px_rgba(0,255,136,0.15)] group-hover:shadow-[0_0_60px_rgba(0,255,136,0.35)] border-emerald-glow/30 group-hover:border-emerald-glow/60"
-      : "shadow-[0_0_40px_rgba(0,212,255,0.15)] group-hover:shadow-[0_0_60px_rgba(0,212,255,0.35)] border-cyber-blue/30 group-hover:border-cyber-blue/60";
+      : glowColor === "cyan"
+        ? "shadow-[0_0_40px_rgba(0,229,255,0.15)] group-hover:shadow-[0_0_60px_rgba(0,229,255,0.35)] border-cyan-electric/30 group-hover:border-cyan-electric/60"
+        : "shadow-[0_0_40px_rgba(0,212,255,0.15)] group-hover:shadow-[0_0_60px_rgba(0,212,255,0.35)] border-cyber-blue/30 group-hover:border-cyber-blue/60";
 
   const colSpanClass = {
     1: "col-span-1",
@@ -96,7 +98,9 @@ export function BentoTile({
           background:
             glowColor === "emerald"
               ? "radial-gradient(circle at 50% 50%, rgba(0,255,136,0.08) 0%, transparent 70%)"
-              : "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.08) 0%, transparent 70%)",
+              : glowColor === "cyan"
+                ? "radial-gradient(circle at 50% 50%, rgba(0,229,255,0.08) 0%, transparent 70%)"
+                : "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.08) 0%, transparent 70%)",
         }}
       />
     </motion.div>

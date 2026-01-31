@@ -28,7 +28,7 @@ export function CyclingSubtitle() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute left-0 text-emerald-glow/90 font-medium"
+          className="absolute left-0 text-cyan-electric/90 font-medium"
         >
           {SUBTITLES[index]}
         </motion.span>

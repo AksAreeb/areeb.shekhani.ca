@@ -10,7 +10,7 @@ export function ActivePulse() {
         initial={false}
       >
         <motion.div
-          className="w-3 h-3 rounded-full bg-emerald-glow"
+          className="w-3 h-3 rounded-full bg-cyan-electric"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         />
@@ -20,7 +20,7 @@ export function ActivePulse() {
           transition={{ duration: 1.5, repeat: Infinity }}
         />
       </motion.div>
-      <span className="text-xs font-mono text-emerald-glow/90">Active</span>
+      <span className="text-xs font-mono text-cyan-electric/90">Active</span>
     </div>
   );
 }
