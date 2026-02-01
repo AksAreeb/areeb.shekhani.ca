@@ -26,30 +26,32 @@ export function AnimatedGridBackground() {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-      {/* Grid lines */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 255, 136, 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 136, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
-        animate={{
-          backgroundPosition: ["0px 0px", "60px 60px"],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-      />
+      {/* Grid lines - GPU-accelerated transform instead of backgroundPosition */}
+      <div className="absolute inset-0 overflow-hidden opacity-[0.08]">
+        <motion.div
+          className="absolute -left-[60px] -top-[60px]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 255, 255, 0.15) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+            width: "calc(100% + 120px)",
+            height: "calc(100% + 120px)",
+          }}
+          animate={{ x: [0, 60], y: [0, 60] }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+      </div>
       {/* Gradient orbs */}
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
         style={{
-          background: "radial-gradient(circle, #00e5ff 0%, transparent 70%)",
+          background: "radial-gradient(circle, #00ffff 0%, transparent 70%)",
           top: "-20%",
           left: "-10%",
         }}
@@ -66,7 +68,7 @@ export function AnimatedGridBackground() {
       <motion.div
         className="absolute w-[500px] h-[500px] rounded-full blur-[100px] opacity-20"
         style={{
-          background: "radial-gradient(circle, #00d4ff 0%, transparent 70%)",
+          background: "radial-gradient(circle, #50fa7b 0%, transparent 70%)",
           bottom: "-15%",
           right: "-5%",
         }}

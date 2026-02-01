@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { BentoTile } from "./BentoTile";
 import { LicenseGuardStatus } from "./LicenseGuardStatus";
 
@@ -48,9 +47,9 @@ export function LicenseGuardCard() {
         <div className="flex-1 mt-4">
           <LicenseGuardStatus />
         </div>
-        <p className="text-xs text-white/40 font-mono mt-4">
-          Governance & license compliance platform
-        </p>
+        <span className="block text-xs text-white/60 font-mono mt-4">
+          Automated GaC engine (Python/Docker)
+        </span>
       </div>
     </BentoTile>
   );

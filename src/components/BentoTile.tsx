@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState, type ReactNode } from "react";
 
@@ -7,11 +8,11 @@ interface BentoTileProps {
   children: ReactNode;
   className?: string;
   glowColor?: "emerald" | "cyber" | "cyan";
-  colSpan?: 1 | 2 | 3;
+  colSpan?: 1 | 2 | 3 | 4;
   rowSpan?: 1 | 2;
 }
 
-export function BentoTile({
+function BentoTileInner({
   children,
   className = "",
   glowColor = "emerald",
@@ -53,15 +54,16 @@ export function BentoTile({
 
   const glowStyles =
     glowColor === "emerald"
-      ? "shadow-[0_0_40px_rgba(0,255,136,0.15)] group-hover:shadow-[0_0_60px_rgba(0,255,136,0.35)] border-emerald-glow/30 group-hover:border-emerald-glow/60"
+      ? "shadow-[0_0_40px_rgba(80,250,123,0.15)] group-hover:shadow-[0_0_60px_rgba(80,250,123,0.35)] border-emerald-glow/30 group-hover:border-emerald-glow/60"
       : glowColor === "cyan"
-        ? "shadow-[0_0_40px_rgba(0,229,255,0.15)] group-hover:shadow-[0_0_60px_rgba(0,229,255,0.35)] border-cyan-electric/30 group-hover:border-cyan-electric/60"
+        ? "shadow-[0_0_40px_rgba(0,255,255,0.15)] group-hover:shadow-[0_0_60px_rgba(0,255,255,0.35)] border-cyan-electric/30 group-hover:border-cyan-electric/60"
         : "shadow-[0_0_40px_rgba(0,212,255,0.15)] group-hover:shadow-[0_0_60px_rgba(0,212,255,0.35)] border-cyber-blue/30 group-hover:border-cyber-blue/60";
 
   const colSpanClass = {
     1: "col-span-1",
     2: "col-span-2",
     3: "col-span-3",
+    4: "col-span-4",
   }[colSpan];
 
   const rowSpanClass = {
@@ -73,7 +75,7 @@ export function BentoTile({
     <div className={`${colSpanClass} ${rowSpanClass}`} style={{ perspective: "1000px" }}>
       <motion.div
         ref={ref}
-        className={`group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-300 overflow-hidden ${glowStyles} ${className}`}
+        className={`group relative rounded-2xl border border-white/[0.1] bg-white/[0.03] backdrop-blur-[8px] transition-all duration-300 overflow-hidden will-change-transform ${glowStyles} ${className}`}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
@@ -97,9 +99,9 @@ export function BentoTile({
         style={{
           background:
             glowColor === "emerald"
-              ? "radial-gradient(circle at 50% 50%, rgba(0,255,136,0.08) 0%, transparent 70%)"
+              ? "radial-gradient(circle at 50% 50%, rgba(80,250,123,0.08) 0%, transparent 70%)"
               : glowColor === "cyan"
-                ? "radial-gradient(circle at 50% 50%, rgba(0,229,255,0.08) 0%, transparent 70%)"
+                ? "radial-gradient(circle at 50% 50%, rgba(0,255,255,0.08) 0%, transparent 70%)"
                 : "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.08) 0%, transparent 70%)",
         }}
       />
@@ -107,3 +109,5 @@ export function BentoTile({
     </div>
   );
 }
+
+export const BentoTile = React.memo(BentoTileInner);

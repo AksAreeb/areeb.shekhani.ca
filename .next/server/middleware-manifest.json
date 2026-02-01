@@ -1,6 +1,36 @@
 {
   "version": 3,
   "middleware": {},
-  "functions": {},
+  "functions": {
+    "/api/ping/route": {
+      "files": [
+        "server/server-reference-manifest.js",
+        "server/app/api/ping/route_client-reference-manifest.js",
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/app/api/ping/route.js"
+      ],
+      "name": "app/api/ping/route",
+      "page": "/api/ping/route",
+      "matchers": [
+        {
+          "regexp": "^/api/ping$",
+          "originalSource": "/api/ping"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "YLfhN1L5GCdV-nLwCpRQM",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "khvLcYcEwgfnO7pkNG35SGHzSBrCWxD0eDXwZuBmuwQ=",
+        "__NEXT_PREVIEW_MODE_ID": "ba1cd09ce5a0ca858aa1619411e0a878",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "b766d905a609970cb465abba54155952003a2cc3cbf08f4f38e49f1a4c81406d",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "64074803cd963d17c712dd7eadffa34c516b6fce5d3771bf6e4df5e61e22dfaa"
+      }
+    }
+  },
   "sortedMiddleware": []
 }

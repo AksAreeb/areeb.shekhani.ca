@@ -8,18 +8,23 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "Fira Code", "ui-monospace", "monospace"],
+      },
       colors: {
         emerald: {
-          glow: "#00ff88",
-          dim: "#00ff8840",
+          glow: "#50fa7b",
+          cyber: "#50fa7b",
+          dim: "#50fa7b40",
         },
         cyber: {
           blue: "#00d4ff",
           "blue-dim": "#00d4ff40",
         },
         cyan: {
-          electric: "#00e5ff",
-          "electric-dim": "#00e5ff40",
+          electric: "#00ffff",
+          "electric-dim": "#00ffff40",
         },
       },
       boxShadow: {
@@ -31,6 +36,7 @@ export default {
       },
       backdropBlur: {
         xs: "2px",
+        glass: "8px",
       },
     },
   },

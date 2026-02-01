@@ -17,7 +17,7 @@ export function GovernanceModeToggle({
       onClick={onToggle}
       aria-pressed={enabled}
       aria-label="Toggle governance mode"
-      className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-cyan-electric/40 text-white/60 hover:text-cyan-electric/90 text-sm font-mono transition-colors"
+      className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] backdrop-blur-[8px] border border-white/[0.1] hover:border-cyan-electric/40 text-white/60 hover:text-cyan-electric/90 text-sm font-mono transition-colors"
     >
       <span
         className={`relative inline-block w-9 h-5 rounded-full transition-colors ${

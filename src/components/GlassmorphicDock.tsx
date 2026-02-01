@@ -44,7 +44,7 @@ export function GlassmorphicDock() {
     >
       <div className="flex flex-col sm:flex-row items-center gap-3">
         {/* Nav links */}
-        <div className="flex items-center gap-1 px-4 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-xl border border-white/10 shadow-glass">
+        <div className="flex items-center gap-1 px-4 py-3 rounded-2xl bg-white/[0.04] backdrop-blur-[8px] border border-white/[0.1] shadow-glass">
           {NAV_ITEMS.map((item) => (
             <motion.a
               key={item.label}
@@ -59,7 +59,7 @@ export function GlassmorphicDock() {
           ))}
         </div>
         {/* Contact links */}
-        <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-xl border border-white/10 shadow-glass">
+        <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/[0.04] backdrop-blur-[8px] border border-white/[0.1] shadow-glass">
           {DOCK_LINKS.map((link) => (
             <motion.a
               key={link.label}

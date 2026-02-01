@@ -15,3 +15,6 @@ export function useMounted(): boolean {
 
   return mounted;
 }
+
+/** Alias for audit/convention compliance */
+export const useIsMounted = useMounted;

@@ -80,11 +80,11 @@ export function DualClock() {
           {LOCATIONS.map((loc) => (
             <div
               key={loc.city}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-4 animate-pulse"
+              className="rounded-xl border border-white/[0.1] bg-white/[0.02] p-4 animate-pulse backdrop-blur-[8px]"
             >
-              <p className="text-xs text-white/40">{loc.city}</p>
-              <p className="text-2xl font-mono text-white/20 mt-2">--:--:--</p>
-              <p className="text-xs text-white/20 mt-1">Loading...</p>
+              <p className="text-xs text-white/50">{loc.city}</p>
+              <p className="text-2xl font-mono text-white/50 mt-2">--:--:--</p>
+              <p className="text-xs text-white/40 mt-1">Loading...</p>
             </div>
           ))}
         </div>
@@ -103,7 +103,7 @@ export function DualClock() {
             key={loc.city}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="rounded-xl border border-white/10 bg-white/[0.02] p-4 hover:border-cyan-electric/30 hover:shadow-[0_0_16px_rgba(0,229,255,0.06)] transition-all duration-300"
+            className="rounded-xl border border-white/[0.1] bg-white/[0.02] p-4 backdrop-blur-[8px] hover:border-cyan-electric/30 hover:shadow-[0_0_16px_rgba(0,255,255,0.06)] transition-all duration-300"
           >
             <p className="text-xs text-cyan-electric/70 font-mono">
               {loc.city}

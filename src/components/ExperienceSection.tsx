@@ -2,27 +2,30 @@
 
 import { motion } from "framer-motion";
 
-const GOVERNANCE_ITEMS = [
+const EXPERIENCE_ITEMS = [
   {
     id: "asus",
-    org: "ASUS",
-    role: "Board Director",
-    period: "Governance & oversight",
+    category: "Governance",
+    role: "Advisory Board Director @ ASUS (Queen's University)",
+    description: "Overseeing $100k+ fund and governance for 10,000 students.",
   },
-];
-
-const TECHNICAL_ITEMS = [
   {
     id: "smith",
-    org: "Smith Engineering",
-    role: "Systems",
-    period: "Technical systems",
+    category: "Engineering",
+    role: "Systems Coordinator @ Smith Engineering",
+    description: "Cascading CMS, XML/XSLT data rendering, and full-site accessibility (A11y) audits.",
   },
   {
     id: "queens",
-    org: "Queen's Computing",
-    role: "Logistics",
-    period: "Operations & logistics",
+    category: "Logistics",
+    role: "Head of Logistics @ Queen's Computing Orientation",
+    description: "Managing supply chain operations for incoming tech students.",
+  },
+  {
+    id: "osac",
+    category: "Leadership",
+    role: "Board Chair @ OSAC",
+    description: "Expanding student advocacy representation in Oakville.",
   },
 ];
 
@@ -51,23 +54,19 @@ export function ExperienceSection() {
         >
           Experience
         </h2>
-        <p className="text-white/50 font-mono text-sm mb-12">
+        <span className="block text-white/50 font-mono text-sm mb-12">
           Work timeline
-        </p>
+        </span>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-          {/* Governance & Leadership */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             <h3 className="text-sm font-mono text-cyan-electric/80 uppercase tracking-widest">
               Governance & Leadership
             </h3>
             <div className="relative pl-6 border-l border-white/10 space-y-8">
-              {GOVERNANCE_ITEMS.map((item, i) => (
+              {EXPERIENCE_ITEMS.filter((i) =>
+                ["Governance", "Leadership"].includes(i.category)
+              ).map((item, i) => (
                 <motion.div
                   key={item.id}
                   variants={timelineItem}
@@ -77,33 +76,26 @@ export function ExperienceSection() {
                   transition={{ delay: i * 0.1 }}
                   className="group relative -ml-px"
                 >
-                  <div className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-electric/50 group-hover:bg-cyan-electric group-hover:shadow-[0_0_12px_rgba(0,229,255,0.5)] transition-all duration-300" />
-                  <div className="rounded-lg px-4 py-3 bg-white/[0.02] border border-transparent group-hover:border-cyan-electric/20 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.08)] transition-all duration-300">
-                    <p className="text-lg font-semibold text-white">{item.org}</p>
-                    <p className="text-sm text-cyan-electric/80 font-medium mt-0.5">
-                      {item.role}
-                    </p>
-                    <p className="text-xs text-white/40 font-mono mt-1">
-                      {item.period}
-                    </p>
+                  <div className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-electric/50 group-hover:bg-cyan-electric group-hover:shadow-[0_0_12px_rgba(0,255,255,0.5)] transition-all duration-300" />
+                  <div className="rounded-lg px-4 py-3 bg-white/[0.02] backdrop-blur-[8px] border border-white/[0.1] group-hover:border-cyan-electric/20 group-hover:shadow-[0_0_20px_rgba(0,255,255,0.08)] transition-all duration-300">
+                    <p className="text-lg font-semibold text-white">{item.role}</p>
+                    <span className="block text-xs text-white/55 font-mono mt-1">
+                      {item.description}
+                    </span>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Technical Systems */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             <h3 className="text-sm font-mono text-cyan-electric/80 uppercase tracking-widest">
-              Technical Systems
+              Engineering & Logistics
             </h3>
             <div className="relative pl-6 border-l border-white/10 space-y-8">
-              {TECHNICAL_ITEMS.map((item, i) => (
+              {EXPERIENCE_ITEMS.filter((i) =>
+                ["Engineering", "Logistics"].includes(i.category)
+              ).map((item, i) => (
                 <motion.div
                   key={item.id}
                   variants={timelineItem}
@@ -113,20 +105,17 @@ export function ExperienceSection() {
                   transition={{ delay: i * 0.1 }}
                   className="group relative -ml-px"
                 >
-                  <div className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-electric/50 group-hover:bg-cyan-electric group-hover:shadow-[0_0_12px_rgba(0,229,255,0.5)] transition-all duration-300" />
-                  <div className="rounded-lg px-4 py-3 bg-white/[0.02] border border-transparent group-hover:border-cyan-electric/20 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.08)] transition-all duration-300">
-                    <p className="text-lg font-semibold text-white">{item.org}</p>
-                    <p className="text-sm text-cyan-electric/80 font-medium mt-0.5">
-                      {item.role}
-                    </p>
-                    <p className="text-xs text-white/40 font-mono mt-1">
-                      {item.period}
-                    </p>
+                  <div className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-electric/50 group-hover:bg-cyan-electric group-hover:shadow-[0_0_12px_rgba(0,255,255,0.5)] transition-all duration-300" />
+                  <div className="rounded-lg px-4 py-3 bg-white/[0.02] backdrop-blur-[8px] border border-white/[0.1] group-hover:border-cyan-electric/20 group-hover:shadow-[0_0_20px_rgba(0,255,255,0.08)] transition-all duration-300">
+                    <p className="text-lg font-semibold text-white">{item.role}</p>
+                    <span className="block text-xs text-white/55 font-mono mt-1">
+                      {item.description}
+                    </span>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </motion.div>
     </section>
